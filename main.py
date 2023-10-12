@@ -16,6 +16,8 @@ def main():
             curiosity.turn('L')
         elif command == 'R':
             curiosity.turn('R')
+        elif command == 'Q':
+            break
         else:
             print('Invalid command')
         pass
