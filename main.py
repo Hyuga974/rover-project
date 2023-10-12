@@ -1,5 +1,5 @@
-import rover
-import planet
+from Models import rover
+from Models import planet
 
 def main():
     mars = planet.Planet(5, 5)
