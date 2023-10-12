@@ -1,5 +1,3 @@
-import planet as p
-
 class Rover():
     def __init__(self, x, y, orientation):
         self.x = x
