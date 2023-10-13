@@ -10,13 +10,13 @@ def main():
     while True:
         command = input('Enter command: ')
         if command == 'F':
-            curiosity.move(mars, 'F')
+            curiosity.move_forward(mars)
         elif command == 'B':
-            curiosity.move(mars, 'B')
+            curiosity.move_backward(mars)
         elif command == 'L':
-            curiosity.turn('L')
+            curiosity.turn_left()
         elif command == 'R':
-            curiosity.turn('R')
+            curiosity.turn_right()
         elif command == 'Q':
             break
         else:

@@ -7,13 +7,22 @@ class Rover:
         self.__position = Position(x, y)
         self.__orientation = Orientation(orientation)
 
-    def move(self, planet, direction):
-        self.__position = self.__orientation.update_position(direction, self.__position)
+    def move_forward(self, planet):
+        self.__position = self.__orientation.update_position('F', self.__position)
+        self = planet.check_limit_planet(self)
+        self.to_string()
+        
+    def move_backward(self, planet):
+        self.__position = self.__orientation.update_position('B', self.__position)
         self = planet.check_limit_planet(self)
         self.to_string()
 
-    def turn(self, rotation):
-        self.__orientation = self.__orientation.update_orientation(rotation)
+    def turn_left(self):
+        self.__orientation = self.__orientation.update_orientation('L')
+        self.to_string()
+        
+    def turn_right(self):
+        self.__orientation = self.__orientation.update_orientation('R')
         self.to_string()
 
     def to_string(self):
