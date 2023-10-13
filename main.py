@@ -1,12 +1,13 @@
 from Models import rover
 from Models import planet
+from Models import orientation
+
 
 def main():
     mars = planet.Planet(5, 5)
     curiosity = rover.Rover(1, 2, 'N')
 
     while True:
-        print(f'Curiosity is at ({curiosity.x}, {curiosity.y}) facing {curiosity.orientation}')
         command = input('Enter command: ')
         if command == 'F':
             curiosity.move(mars, 'F')
@@ -21,6 +22,7 @@ def main():
         else:
             print('Invalid command')
         pass
+
 
 if __name__ == '__main__':
     main()
