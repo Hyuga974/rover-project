@@ -25,12 +25,13 @@ class Orientation:
             dx, dy = self.__movements[self.__opposites[self.__orientation]]
         else:
             raise ValueError("Invalid direction")
-    
+        
         is_obstacle = planet.is_obstacle_at_position(Position(dx+position._Position__x._Coordinate__value, dy+position._Position__y._Coordinate__value))
         
         if not is_obstacle :
             position._Position__x._Coordinate__value += dx
             position._Position__y._Coordinate__value += dy
+            position = planet.check_limit_planet(position)
         else :
             print("Obstacle rencontré")
         return Position(position._Position__x._Coordinate__value, position._Position__y._Coordinate__value), is_obstacle

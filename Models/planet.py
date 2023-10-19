@@ -8,18 +8,19 @@ class Planet:
             obstacles = [Obstacle(self) for _ in range(size_x * size_y // 10)]
         self.__obstacles = obstacles
 
-    def check_limit_planet(self, rover):
-        if rover._Rover__position._Position__x._Coordinate__value > self.__size_x:
-            rover._Rover__position._Position__x._Coordinate__value = 0
-        elif rover._Rover__position._Position__x._Coordinate__value < 0:
-            rover._Rover__position._Position__x._Coordinate__value = self.__size_x
-        elif rover._Rover__position._Position__y._Coordinate__value > self.__size_y:
-            rover._Rover__position._Position__y._Coordinate__value = 0
-        elif rover._Rover__position._Position__y._Coordinate__value < 0:
-            rover._Rover__position._Position__y._Coordinate__value = self.__size_y
-        return rover
+    def check_limit_planet(self, position):
+        if position._Position__x._Coordinate__value > self.__size_x:
+            position._Position__x._Coordinate__value = 0
+        elif position._Position__x._Coordinate__value < 0:
+            position._Position__x._Coordinate__value = self.__size_x
+        elif position._Position__y._Coordinate__value > self.__size_y:
+            position._Position__y._Coordinate__value = 0
+        elif position._Position__y._Coordinate__value < 0:
+            position._Position__y._Coordinate__value = self.__size_y
+        return position
 
     def is_obstacle_at_position(self, position) :
+        position = self.check_limit_planet(position)
         for obstacle in self.__obstacles :
             if obstacle._Obstacle__position._Position__x._Coordinate__value == position._Position__x._Coordinate__value and obstacle._Obstacle__position._Position__y._Coordinate__value == position._Position__y._Coordinate__value :
                 return True

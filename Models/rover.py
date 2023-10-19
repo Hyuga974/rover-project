@@ -8,13 +8,11 @@ class Rover:
 
     def move_forward(self, planet):
         self.__position, is_obstacle = self.__orientation.update_position('F', self.__position, planet)
-        self = planet.check_limit_planet(self)
         self.to_string()
         return is_obstacle
         
     def move_backward(self, planet):
         self.__position, is_obstacle = self.__orientation.update_position('B', self.__position, planet)
-        self = planet.check_limit_planet(self)
         self.to_string()
         return is_obstacle
 

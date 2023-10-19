@@ -1,12 +1,12 @@
 class Instruction:
-    def __init__(self, instructions = []):
+    def __init__(self, instructions = [], is_valid = False):
         self.__instruction_order = instructions
         self.__forward = 'F'
         self.__backward = 'B'
         self.__left = 'L'
         self.__right = 'R'
         self.again = True
-        self.__is_valid = False
+        self.__is_valid = is_valid
 
     def add_instruction(self):
         self.__instruction_order = []
@@ -31,10 +31,12 @@ class Instruction:
             if command == 'F':
                 is_obstacle = rover.move_forward(planet)
                 if is_obstacle :
+                    print("test----------------------------------F")
                     break
             elif command == 'B':
                 is_obstacle = rover.move_backward(planet)
                 if is_obstacle :
+                    print("test----------------------------------B")
                     break
             elif command == 'L':
                 rover.turn_left()
