@@ -1,6 +1,6 @@
 class Instruction:
-    def __init__(self):
-        self.__instruction_order = []
+    def __init__(self, instructions = []):
+        self.__instruction_order = instructions
         self.__forward = 'F'
         self.__backward = 'B'
         self.__left = 'L'
@@ -9,6 +9,7 @@ class Instruction:
         self.__is_valid = False
 
     def add_instruction(self):
+        self.__instruction_order = []
         commands_string = input('Enter commands: ').replace(" ", "")
         if "Q" in commands_string :
             self.again = False

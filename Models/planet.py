@@ -1,12 +1,12 @@
 from Models.obstacle import Obstacle
 
 class Planet:
-    def __init__(self, size_x, size_y):
+    def __init__(self, size_x, size_y, obstacles=None):
         self.__size_x = size_x
         self.__size_y = size_y
-        self.__obstacles = [
-            Obstacle(self) #for _ in range(size_x*size_y//10)
-        ]
+        if obstacles is None:
+            obstacles = [Obstacle(self) for _ in range(size_x * size_y // 10)]
+        self.__obstacles = obstacles
 
     def check_limit_planet(self, rover):
         if rover._Rover__position._Position__x._Coordinate__value > self.__size_x:
