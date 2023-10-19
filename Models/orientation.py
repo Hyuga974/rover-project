@@ -18,16 +18,22 @@ class Orientation:
             'W': {'L': 'S', 'R': 'N'}
         }
 
-    def update_position(self, direction, position):
+    def update_position(self, direction, position, planet):
         if direction == 'F':
             dx, dy = self.__movements[self.__orientation]
         elif direction == 'B':
             dx, dy = self.__movements[self.__opposites[self.__orientation]]
         else:
             raise ValueError("Invalid direction")
-        dx += position._Position__x._Coordinate__value
-        dy += position._Position__y._Coordinate__value
-        return Position(dx, dy)
+    
+        is_obstacle = planet.is_obstacle_at_position(Position(dx+position._Position__x._Coordinate__value, dy+position._Position__y._Coordinate__value))
+        
+        if not is_obstacle :
+            position._Position__x._Coordinate__value += dx
+            position._Position__y._Coordinate__value += dy
+        else :
+            print("Obstacle rencontré")
+        return Position(position._Position__x._Coordinate__value, position._Position__y._Coordinate__value), is_obstacle
 
     def update_orientation(self, rotation):
         rotations = self.__rotations

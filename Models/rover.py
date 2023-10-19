@@ -1,21 +1,22 @@
 from Models.position import Position
 from Models.orientation import Orientation
 
-
 class Rover:
     def __init__(self, x, y, orientation):
         self.__position = Position(x, y)
         self.__orientation = Orientation(orientation)
 
     def move_forward(self, planet):
-        self.__position = self.__orientation.update_position('F', self.__position)
+        self.__position, is_obstacle = self.__orientation.update_position('F', self.__position, planet)
         self = planet.check_limit_planet(self)
         self.to_string()
+        return is_obstacle
         
     def move_backward(self, planet):
-        self.__position = self.__orientation.update_position('B', self.__position)
+        self.__position, is_obstacle = self.__orientation.update_position('B', self.__position, planet)
         self = planet.check_limit_planet(self)
         self.to_string()
+        return is_obstacle
 
     def turn_left(self):
         self.__orientation = self.__orientation.update_orientation('L')

@@ -21,9 +21,13 @@ class Instruction:
     def exec_commands(self, planet, rover):
         for command in self.__instruction_order:
             if command == 'F':
-                rover.move_forward(planet)
+                is_obstacle = rover.move_forward(planet)
+                if is_obstacle :
+                    break
             elif command == 'B':
-                rover.move_backward(planet)
+                is_obstacle = rover.move_backward(planet)
+                if is_obstacle :
+                    break
             elif command == 'L':
                 rover.turn_left()
             elif command == 'R':
