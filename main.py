@@ -8,8 +8,9 @@ def main():
     curiosity = rover.Rover(1, 2, 'N')
     instructions = instruction.Instruction()
 
-    instructions.add_instruction()
-    instructions.exec_commands(mars, curiosity)
+    while instructions.again:
+        instructions.add_instruction()
+        instructions.exec_commands(mars, curiosity)
 
 if __name__ == '__main__':
     main()

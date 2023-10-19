@@ -5,13 +5,18 @@ class Instruction:
         self.__backward = 'B'
         self.__left = 'L'
         self.__right = 'R'
+        self.again = True
+        self.__is_valid = False
 
     def add_instruction(self):
         commands_string = input('Enter commands: ').replace(" ", "")
+        if "Q" in commands_string :
+            self.again = False
+            return
         commands = list(commands_string)
-        is_valid = all(element == self.__forward or element == self.__backward or element == self.__left or element == self.__right for element in commands)
+        self.__is_valid = all(element == self.__forward or element == self.__backward or element == self.__left or element == self.__right for element in commands)
         
-        if is_valid :
+        if self.__is_valid :
             for command in commands :
                 self.__instruction_order.append(command)
         else:
@@ -19,6 +24,8 @@ class Instruction:
         pass
 
     def exec_commands(self, planet, rover):
+        if self.__is_valid == False:
+            return
         for command in self.__instruction_order:
             if command == 'F':
                 rover.move_forward(planet)
