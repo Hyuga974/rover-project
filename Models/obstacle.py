@@ -1,7 +1,7 @@
 from Models.position import Position
 from random import randint
 
-#Entité
+#Objet-valeur
 class Obstacle:
     def __init__(self, planet, position = None):
         if position is None :

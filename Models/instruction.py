@@ -32,12 +32,10 @@ class Instruction:
             if command == 'F':
                 is_obstacle = rover.move_forward(planet)
                 if is_obstacle :
-                    print("test----------------------------------F")
                     break
             elif command == 'B':
                 is_obstacle = rover.move_backward(planet)
                 if is_obstacle :
-                    print("test----------------------------------B")
                     break
             elif command == 'L':
                 rover.turn_left()

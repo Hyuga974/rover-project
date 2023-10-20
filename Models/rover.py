@@ -1,9 +1,10 @@
 from Models.position import Position
 from Models.orientation import Orientation
 
-#Entitté
+#Entitté (candidat OV)
 class Rover:
     def __init__(self, x, y, orientation):
+        #Identité du ROVER
         self.__position = Position(x, y)
         self.__orientation = Orientation(orientation)
 

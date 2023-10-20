@@ -1,6 +1,6 @@
 from Models.position import Position
 
-#Entité
+#O-V
 class Orientation:
     def __init__(self, orientation):
         self.__orientation = orientation

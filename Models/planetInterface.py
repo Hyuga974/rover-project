@@ -1,6 +1,5 @@
 from abc import ABC, abstractmethod
 
-#Objet-valeur
 class PlanetInterface(ABC):
     @abstractmethod
     def __init__(self, size_x, size_y, obstacles=None):
