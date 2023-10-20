@@ -1,6 +1,7 @@
 from Models.obstacle import Obstacle
 from Models.planetInterface import PlanetInterface
 
+#Entitité
 class Planet(PlanetInterface):
     def __init__(self, size_x, size_y, obstacles=None):
         self.__size_x = size_x

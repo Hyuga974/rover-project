@@ -1,6 +1,7 @@
 from Models.position import Position
 from Models.orientation import Orientation
 
+#Entitté
 class Rover:
     def __init__(self, x, y, orientation):
         self.__position = Position(x, y)

@@ -1,3 +1,4 @@
+# Entité
 class Instruction:
     def __init__(self, instructions = [], is_valid = False):
         self.__instruction_order = instructions
