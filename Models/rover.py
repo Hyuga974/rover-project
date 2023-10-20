@@ -1,30 +1,35 @@
 from Models.position import Position
 from Models.orientation import Orientation
 
-#Entitté (candidat OV)
+#Object-Value
 class Rover:
     def __init__(self, x, y, orientation):
-        #Identité du ROVER
         self.__position = Position(x, y)
         self.__orientation = Orientation(orientation)
 
     def move_forward(self, planet):
-        self.__position, is_obstacle = self.__orientation.update_position('F', self.__position, planet)
-        self.to_string()
-        return is_obstacle
+        position, is_obstacle = self.__orientation.update_position('F', self.__position, planet)
+        new_rover = Rover(position._Position__x._Coordinate__value, position._Position__y._Coordinate__value, self.__orientation._Orientation__orientation)
+        new_rover.to_string()
+        return new_rover, is_obstacle
         
     def move_backward(self, planet):
-        self.__position, is_obstacle = self.__orientation.update_position('B', self.__position, planet)
+        position, is_obstacle = self.__orientation.update_position('B', self.__position, planet)
+        new_rover = Rover(position._Position__x._Coordinate__value, position._Position__y._Coordinate__value, self.__orientation._Orientation__orientation)
         self.to_string()
-        return is_obstacle
+        return new_rover, is_obstacle
 
     def turn_left(self):
-        self.__orientation = self.__orientation.update_orientation('L')
+        orientation = self.__orientation.update_orientation('L')
+        new_rover = Rover(self.__position._Position__x._Coordinate__value, self.__position._Position__y._Coordinate__value, orientation._Orientation__orientation)
         self.to_string()
+        return new_rover
         
     def turn_right(self):
-        self.__orientation = self.__orientation.update_orientation('R')
+        orientation = self.__orientation.update_orientation('R')
+        new_rover = Rover(self.__position._Position__x._Coordinate__value, self.__position._Position__y._Coordinate__value, orientation._Orientation__orientation)
         self.to_string()
+        return new_rover
 
     def to_string(self):
         print(

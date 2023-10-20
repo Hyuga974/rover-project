@@ -30,14 +30,16 @@ class Instruction:
             return
         for command in self.__instruction_order:
             if command == 'F':
-                is_obstacle = rover.move_forward(planet)
+                rover, is_obstacle = rover.move_forward(planet)
                 if is_obstacle :
                     break
             elif command == 'B':
-                is_obstacle = rover.move_backward(planet)
+                rover, is_obstacle = rover.move_backward(planet)
                 if is_obstacle :
                     break
             elif command == 'L':
-                rover.turn_left()
+                rover = rover.turn_left()
             elif command == 'R':
-                rover.turn_right()
+                rover = rover.turn_right()
+
+        return rover
