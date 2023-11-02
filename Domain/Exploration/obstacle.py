@@ -1,4 +1,4 @@
-from Models.position import Position
+from Domain.Topologie.position import Position
 from random import randint
 
 #Objet-valeur

@@ -1,5 +1,5 @@
-from Models.obstacle import Obstacle
-from Models.planetInterface import PlanetInterface
+from Domain.Exploration.obstacle import Obstacle
+from Domain.Exploration.planetInterface import PlanetInterface
 
 #Objet-valeur
 class Planet(PlanetInterface):

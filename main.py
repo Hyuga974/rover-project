@@ -1,8 +1,8 @@
-from Models import rover
-from Models import planet
-from Models import instruction
-from Models import position
-from Models import obstacle
+from Domain.MissionRover import rover
+from Domain.Exploration import planet
+from Domain.MissionRover import instruction
+from Domain.Topologie import position
+from Domain.Exploration import obstacle
 
 
 def main():

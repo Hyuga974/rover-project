@@ -1,4 +1,4 @@
-from Models.coordinate import Coordinate
+from Domain.Topologie.coordinate import Coordinate
 
 #Objet-valeur
 class Position:

@@ -1,9 +1,9 @@
 import unittest
-from Models.rover import Rover
-from Models.planet import Planet
-from Models.obstacle import Obstacle
-from Models.position import Position
-from Models.instruction import Instruction
+from Domain.MissionRover.rover import Rover
+from Domain.Exploration.planet import Planet
+from Domain.MissionRover.instruction import Instruction
+from Domain.Topologie.position import Position
+from Domain.Exploration.obstacle import Obstacle
 
 
 class TestRover(unittest.TestCase):
